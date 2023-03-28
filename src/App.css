@@ -1,0 +1,45 @@
+.top-nav{
+    background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+    color: white;
+    font-size: 1.25rem;
+}
+.top-nav--info{
+    font-size: .75rem;
+}
+.mem--form{
+    max-width: 460px !important;
+}
+.mem--button{
+    background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+    color: white;
+    transition: all .3s;
+}
+
+.mem--button:hover{
+    background: linear-gradient(90deg, #87416a 1.18%, #cd679f 100%);
+    /* transition: background 2s linear; */
+    box-shadow: 0 0 5px 2px #A626D3 !important;
+    text-shadow: 0px 0px 2px black;
+}
+.meme--img{
+    position: relative;
+    color: green;
+}
+.meme--img img{
+    max-width: 460px;
+}
+
+.meme--img h2{
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 15px 0;
+    padding: 0 5px;
+}
+.top{
+    top: 0;
+}
+.bottom{
+    bottom: 0;
+}
