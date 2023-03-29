@@ -6,20 +6,35 @@ import memesData from '../assets/memesData'
 
 
 export default function MemGen(){
-    let memesArray = memesData.data["memes"]
+    const [allMemes, setAllMemes] = React.useState(memesData)
+    // using asyn/awiat inside useEffect
+    React.useEffect(()=>{
+        async function getData(){
+            const res = await fetch("https://api.imgflip.com/get_memes")
+            const data = await res.json()
+            setAllMemes(data)
+        }
+        getData()
+        // withought async/await 
+        // fetch("https://api.imgflip.com/get_memes")
+        // .then(res=>res.json())
+        // .then(data=>setAllMemes(data))
+    }, [])
+
+    let memesArray = allMemes.data["memes"]
     let rand = Math.floor((Math.random())*memesArray.length)
     let initMeme = {
         ...memesArray[rand],
-        topText: "top text",
-        bottomText: "bottom text"
+        topText: "Top Text",
+        bottomText: "Bottom Text"
     }
     const [_meme, setMeme] = React.useState(initMeme)
     function getMemeImage(){
         rand = Math.floor((Math.random())*memesArray.length)
        setMeme({
         ...memesArray[rand],
-        topText: "",
-        bottomText: ""
+        topText: "Top Text",
+        bottomText: "Bottom Text"
         })
     }
 function handleText(event){
