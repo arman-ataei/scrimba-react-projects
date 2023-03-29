@@ -1,0 +1,102 @@
+/* #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+} */
+.header{
+  background-color: #FFFFFF;
+  box-shadow: 0px 2.98256px 7.4564px rgba(0, 0, 0, 0.1);
+}
+.hero{
+  margin: 10px 0;
+  padding: 20px;
+}
+
+.hero img{
+  margin: 10px;
+  max-width: 400px;
+  text-align: center;
+}
+.hero .desc{
+  margin-top: 20px;
+}
+.hero p{
+  max-width: 300px;
+  text-align: justify;
+  margin-top: 16px;
+  line-height: 1.2em;
+}
+.desc::after{
+  content: "";
+  position: absolute;
+  border-bottom: 5px solid rgb(96, 96, 96);
+  width:70%;
+
+  /*start: Centerting an absolutely positioned element */
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+/* end: centering an absolutely positioned element  */
+margin-top: 20px;
+}
+
+/* remove "::after" or make it "full width" */
+.card-list{
+  margin: 0 20px;
+  margin-bottom: 40px;
+  gap: 30px;
+  overflow-x: scroll;
+  /* position: relative; */
+}
+
+
+.crd{
+  position: relative;
+}
+.crd--bage{
+  position: absolute;
+  background-color: darkred;
+  color: white;
+  border-radius: 4px;
+  top: 5px;
+  left: 5px;
+  padding: 2px;
+}
