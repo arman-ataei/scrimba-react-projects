@@ -1,0 +1,14 @@
+.nav{
+    color: whitesmoke;
+    background-color: #F55A5A;
+}
+
+.card {
+    margin: 10px auto;
+}
+
+@media only screen and (min-width: 769px) {
+    .img-fluid{
+        margin-right: 20px;
+    }
+  }
