@@ -5,9 +5,10 @@ export default function Sidebar(props) {
         {
           // using a regex to exteract the 5-20 noneMarkdown characters of the first line 
           const titleText = note.body.split("\n")[0]
-          let noneMarkdownRegEx = /[\w+\s*\.*!*?*@*'*"*]{5,20}/g
+          let noneMarkdownRegEx = /[\w\s\.\!\?@'"-_]{5,30}/g
           const titlePatern = titleText.match(noneMarkdownRegEx)
-          const TextOfTitle = titlePatern ? titlePatern.join("").trim() : "Your Title"
+          console.log(titlePatern)
+          const TextOfTitle = titlePatern ? titlePatern.join("").trim().slice(0,30).toUpperCase() : "Your Title"
         return (<div key={note.id}>
             <div
                 
