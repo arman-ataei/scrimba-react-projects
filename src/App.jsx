@@ -32,7 +32,7 @@ function App() {
 // using a callback in teh useState function for preventing the code to run everytime the component renders
 // --------------------------------------------------------------------------------------//
 // add the following fetures to the app:
-//      1.last edit (time and date) 
+//      1.last edit (time and date)  (in progress)
 //      2.use regEx to get the right title from the first line, withought the markdown characters (done)
 // --------------------------------------------------------------------------------------//
 
@@ -40,7 +40,7 @@ function App() {
   const [currentNoteId, setCurrentNoteId] = React.useState(
       (notes[0] && notes[0].id) || ""
   )
-  React.useState(()=>{
+  React.useEffect(()=>{
     localStorage.setItem("notes",JSON.stringify(notes))
   },[notes])
   function createNewNote() {
