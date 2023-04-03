@@ -4,7 +4,7 @@ import { nanoid } from "nanoid";
 import Split from "react-split";
 // ---------------------------------------------//
 // Custom Components
-import Sidebar from "./components/Sidebar";
+import Sidebar from "./components/SideBar";
 import Editor from "./components/Editor";
 // import { data } from "./data";
 // --------------------------------------------//
@@ -32,7 +32,7 @@ function App() {
 // using a callback in teh useState function for preventing the code to run everytime the component renders
 // --------------------------------------------------------------------------------------//
 // add the following fetures to the app:
-//      1.last edit (time and date)  (in progress)
+//      1.last edit (time and date)  (done)
 //      2.use regEx to get the right title from the first line, withought the markdown characters (done)
 // --------------------------------------------------------------------------------------//
 
@@ -44,8 +44,11 @@ function App() {
     localStorage.setItem("notes",JSON.stringify(notes))
   },[notes])
   function createNewNote() {
+    const date = new Date()
+    const currentDateTime = `${date.getDay()}/${date.getMonth()}/${date.getFullYear()}-${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
       const newNote = {
           id: nanoid(),
+          lastEdit: currentDateTime,
           body: "# Type your markdown note's title here"
       }
       setNotes(prevNotes => [newNote, ...prevNotes])
@@ -56,12 +59,14 @@ function App() {
     // inserting the note that has been updated/added recently at the top of the list:
       setNotes(oldNotes => {
           // 1. we need to change the state of the app, more specificly notes
+          const date = new Date()
+          const currentDateTime = `${date.getDay()}/${date.getMonth()}/${date.getFullYear()}-${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
         const newNotes = []
         for (let i=0 ; i< oldNotes.length ; i++){
           const oldNote = oldNotes[i]
           // 2. find the currentNode that is changing and unshift it to the notes
           if(oldNote.id === currentNoteId ){
-            newNotes.unshift({...oldNote, body: text})
+            newNotes.unshift({...oldNote,lastEdit: currentDateTime, body: text})
           }else{
           // 3. or just push the new array to the notes
             newNotes.push(oldNote)

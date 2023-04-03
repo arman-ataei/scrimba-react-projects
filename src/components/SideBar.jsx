@@ -5,10 +5,10 @@ export default function Sidebar(props) {
         {
           // using a regex to exteract the 5-20 noneMarkdown characters of the first line 
           const titleText = note.body.split("\n")[0]
-          let noneMarkdownRegEx = /[\w\s\.\!\?@'"-_]{5,30}/g
+          let noneMarkdownRegEx = /[\$\\\w\s\.\!\?\@'"-]{5,30}/g
           const titlePatern = titleText.match(noneMarkdownRegEx)
-          console.log(titlePatern)
           const TextOfTitle = titlePatern ? titlePatern.join("").trim().slice(0,30).toUpperCase() : "Your Title"
+          console.log(TextOfTitle)
         return (<div key={note.id}>
             <div
                 
@@ -18,6 +18,7 @@ export default function Sidebar(props) {
                 onClick={() => props.setCurrentNoteId(note.id)}
             >
                 <h4 className="text-snippet">{index + 1}- {TextOfTitle}</h4>
+                <p style={{fontSize: "8px", color: "red"}}>{note.lastEdit}</p>
                 <button 
                     className="delete-btn"
                     onClick={(event)=>props.deletThisNote(event,note.id)}// Your onClick event handler here
